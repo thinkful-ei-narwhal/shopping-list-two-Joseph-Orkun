@@ -92,7 +92,7 @@ function handleDeleteItemClicked() {
   $('.js-shopping-list').on('click', '.js-item-delete', function(event) {
     event.preventDefault();
     const itemId = getItemIdFromElement(event.currentTarget);
-    
+    STORE.filter(obj => obj.id != itemId);
     renderShoppingList();
   });
 }
