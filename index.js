@@ -82,7 +82,8 @@ function handleItemCheckClicked() {
 }
 
 function deleteStoreItem(item) {
-  
+  const deleteIt = STORE.filter(obj => obj.id !== item)
+  return deleteIt;
 }
 
 
@@ -92,8 +93,9 @@ function handleDeleteItemClicked() {
   $('.js-shopping-list').on('click', '.js-item-delete', function(event) {
     event.preventDefault();
     const itemId = getItemIdFromElement(event.currentTarget);
-    STORE.filter(obj => obj.id != itemId);
+    deleteStoreItem(itemId);
     renderShoppingList();
+    console.log(deleteStoreItem(itemId));
   });
 }
 
