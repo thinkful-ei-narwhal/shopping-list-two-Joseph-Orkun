@@ -81,11 +81,20 @@ function handleItemCheckClicked() {
   });
 }
 
+function deleteStoreItem(item) {
+  
+}
+
 
 function handleDeleteItemClicked() {
   // this function will be responsible for when users want to delete a shopping list
   // item
-  console.log('`handleDeleteItemClicked` ran')
+  $('.js-shopping-list').on('click', '.js-item-delete', function(event) {
+    event.preventDefault();
+    const itemId = getItemIdFromElement(event.currentTarget);
+    
+    renderShoppingList();
+  });
 }
 
 // this function will be our callback when the page loads. it's responsible for
