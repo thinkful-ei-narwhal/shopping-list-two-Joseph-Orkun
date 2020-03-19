@@ -1,6 +1,6 @@
 'use strict';
 
-const STORE = [
+let STORE = [
   {id: cuid(), name: "apples", checked: false},
   {id: cuid(), name: "oranges", checked: false},
   {id: cuid(), name: "milk", checked: true},
@@ -82,8 +82,7 @@ function handleItemCheckClicked() {
 }
 
 function deleteStoreItem(item) {
-  const deleteIt = STORE.filter(obj => obj.id !== item)
-  return deleteIt;
+  STORE = STORE.filter(obj => obj.id !== item);
 }
 
 
@@ -91,11 +90,9 @@ function handleDeleteItemClicked() {
   // this function will be responsible for when users want to delete a shopping list
   // item
   $('.js-shopping-list').on('click', '.js-item-delete', function(event) {
-    event.preventDefault();
     const itemId = getItemIdFromElement(event.currentTarget);
     deleteStoreItem(itemId);
     renderShoppingList();
-    console.log(deleteStoreItem(itemId));
   });
 }
 
